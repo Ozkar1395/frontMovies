@@ -1,0 +1,42 @@
+
+<div>
+  <h1>Peliculas</h1>
+  <button class="btn-derecha" (click)="crearPelicula()"  mat-raised-button color="primary"><mat-icon>add</mat-icon> Crear pelicula</button>
+</div>
+
+<div>
+  filtro de busqueda por fechas
+</div>
+
+<div style="height: 70%;">
+
+    <mat-grid-list cols="4" rowHeight="500">
+        <mat-grid-tile *ngFor="let pelicula of peliculas" >
+            <mat-card class="example-card" (click)="reservarPelucila(pelicula)" >
+
+                <!-- <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header> -->
+                <img mat-card-image [src]="pelicula.img_url" alt="{{pelicula.nombre}}">
+                <mat-card-content>
+                  <h2>{{pelicula.nombre}}</h2>
+                  <p>
+                    {{pelicula.descripcion}}
+
+                  </p>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+              </mat-card>
+        </mat-grid-tile>
+
+
+
+
+      </mat-grid-list>
+
+</div>
