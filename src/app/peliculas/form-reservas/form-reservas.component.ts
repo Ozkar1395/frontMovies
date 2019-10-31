@@ -11,6 +11,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class FormReservasComponent implements OnInit {
 
   formReservas: FormGroup;
+  mensaje: string;
+  verm: boolean = false;
   constructor(
     public formBuild: FormBuilder,
     public peliculasService: PeliculasService,
@@ -18,6 +20,14 @@ export class FormReservasComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
     console.log(this.data);
+
+    this.peliculasService.getReservasByPeliculas(this.data).subscribe(res => {
+      console.log(res);
+      if (res.length >= 10) {
+this.verm = true;
+this.mensaje = "Lo sentimos esta pelicula no puede ser reservada"
+      }
+    });
 
     this.formReservas = formBuild.group({
       nombre: ['', Validators.required],

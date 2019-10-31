@@ -31,5 +31,5 @@
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="crearPelicula()" >Crear Pelicula!</button>
+  <button mat-raised-button color="primary" [disabled]="formPelicula.invalid" (click)="crearPelicula()" >Crear Pelicula!</button>
 </form>

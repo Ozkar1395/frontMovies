@@ -1,6 +1,6 @@
 import { PeliculasService } from './../../services/peliculas.service';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PeliculasComponent } from '../peliculas.component';
@@ -23,10 +23,10 @@ export class FormPeliculasComponent implements OnInit {
   ngOnInit() {
 
     this.formPelicula = this.formBuild.group({
-      titulo: [''],
-      descripcion: [''],
-      urlimg: [''],
-      fecha: ['']
+      titulo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      urlimg: ['', Validators.required],
+      fecha: ['', Validators.required]
     });
   }
 

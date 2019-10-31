@@ -37,4 +37,11 @@ export class PeliculasService {
 
     return this.http.get('http://localhost:3000/reservar', {headers: header});
   }
+
+  getReservasByPeliculas(idPelicula): Observable<any> {
+    const header = new HttpHeaders();
+    header.set('Content-Type', 'application/json');
+
+    return this.http.get('http://localhost:3000/reservas/' + idPelicula, {headers: header});
+  }
 }

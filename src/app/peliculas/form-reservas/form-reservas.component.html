@@ -1,4 +1,9 @@
 <h1>Reservar pelicula</h1>
+<div *ngIf="verm" >
+  <p>
+    {{mensaje}}
+  </p>
+</div>
 <form class="example-form" [formGroup]="formReservas">
 
   <mat-form-field appearance="outline">
@@ -30,6 +35,6 @@
   </mat-form-field>
 
 
-  <button mat-raised-button color="primary" (click)="reservarPelicula()" >Reservar Pelicula!</button>
+  <button mat-raised-button color="primary" *ngIf="!verm"  [disabled]="formReservas.invalid" (click)="reservarPelicula()" >Reservar Pelicula!</button>
 </form>
 
